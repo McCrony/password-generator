@@ -1,0 +1,325 @@
+/* Universal Styling */
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("./fonts/JetBrainsMono-VariableFont_wght.ttf");
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "JetBrains Mono", sans-serif;
+  font-size: 16px;
+}
+
+body {
+  min-width: 375px;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--navy-blue);
+}
+
+label {
+  display: flex;
+  align-items: center;
+}
+
+:root {
+  /* Color List */
+  --black-metal: hsl(248, 10%, 15%);
+  --navy-blue: hsl(248, 15%, 11%);
+  --milky-white: hsl(252, 11%, 91%);
+  --violett-pale: hsl(251, 9%, 53%);
+  --green-pale: hsl(127, 100%, 82%);
+  --red: hsl(0, 91%, 63%);
+  --orange: hsl(13, 95%, 66%);
+  --yellow: hsl(42, 91%, 68%);
+  /* Font Size */
+  --fs-large: 2rem;
+  --fs-medium: 1.5rem;
+  --fs-normal: 1.125rem;
+  --fs-small: 0.8rem;
+}
+
+/* Container Styling */
+main {
+  display: grid;
+  row-gap: 1.5rem;
+}
+
+.main--container {
+  width: 33.75rem;
+  padding: 2rem;
+  position: relative;
+  background-color: var(--black-metal);
+  color: var(--milky-white);
+}
+
+.main--container:nth-child(2) {
+  font-size: var(--fs-normal);
+}
+
+.option--container {
+  display: grid;
+  margin-bottom: 3rem;
+  row-gap: 1.25rem;
+}
+
+.bars--container {
+  width: 4rem;
+  margin-left: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.password-strength--container {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--navy-blue);
+}
+
+.status--container {
+  display: flex;
+  align-items: center;
+}
+
+/* Font Utilities */
+.page--heading {
+  margin-bottom: 2rem;
+  font-size: var(--fs-medium);
+  color: var(--violett-pale);
+}
+
+.text--uppercase {
+  text-transform: uppercase;
+}
+
+.text--disabled {
+  color: var(--violett-pale);
+}
+
+.text--error {
+  display: none;
+  font-size: var(--fs-small);
+  color: var(--red);
+}
+
+.length--error,
+.option--error {
+  display: none;
+  position: absolute;
+  left: 75px;
+}
+
+.length--error.error,
+.option--error.error {
+  display: block;
+}
+
+.length--error {
+  top: 108px;
+}
+
+.option--error {
+  bottom: 105px;
+}
+
+.status {
+  font-size: var(--fs-medium);
+  font-weight: bold;
+}
+
+.generated--password {
+  font-size: var(--fs-large);
+}
+
+.copy--message {
+  font-size: var(--fs-normal);
+  color: var(--green-pale);
+  margin-right: 0.6rem;
+}
+
+/* Button Styling */
+.button--copy {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 22px;
+  bottom: 42px;
+  cursor: pointer;
+}
+
+.icon--arrow {
+  margin-left: 1rem;
+  fill: var(--navy-blue);
+}
+
+.icon--arrow:hover {
+  fill: var(--green-pale);
+}
+
+.button--generate {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "JetBrains Mono", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--black-metal);
+  letter-spacing: 1px;
+  background-color: var(--green-pale);
+  border: 2px solid;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.5s ease-out;
+}
+
+.button--generate:hover {
+  color: var(--green-pale);
+  border: 2px solid var(--green-pale);
+  background-color: var(--black-metal);
+}
+
+.button--generate:hover .icon--arrow {
+  fill: var(--green-pale);
+}
+
+/* Other Components */
+.password--length {
+  position: absolute;
+  right: 36px;
+  top: 22px;
+  font-size: var(--fs-large);
+  color: var(--green-pale);
+}
+
+.bar {
+  width: 10px;
+  height: 28px;
+  border: 2px solid var(--milky-white);
+}
+
+/* Custom Input Range */
+input[type="range"] {
+  appearance: none;
+  width: 100%;
+  height: 0.5rem;
+  margin: 2rem 0 3rem;
+  background-color: var(--navy-blue);
+  border-radius: 16px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 16px;
+  background-color: var(--milky-white);
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background-color: var(--green-pale);
+  box-shadow: 0 0 15px 15px hsla(127, 100%, 82%, 0.2);
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  background-color: var(--navy-blue);
+  border: 2px solid var(--green-pale);
+  box-shadow: none;
+}
+
+/* Custom Input Checkbox */
+input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-right: 1.5rem;
+  border: 2px solid var(--milky-white);
+  cursor: pointer;
+}
+
+input[type="checkbox"]:active {
+  border-color: var(--green-pale);
+}
+
+input[type="checkbox"]:checked {
+  border: none;
+  background-image: url("./images/icon-check.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--green-pale);
+}
+
+@media only screen and (max-width: 550px) {
+  .main--container {
+    width: 100%;
+  }
+  .generated--password {
+    font-size: var(--fs-normal);
+  }
+
+  .button--copy {
+    right: 22px;
+    bottom: 32px;
+  }
+
+  .password--length {
+    top: 26px;
+    right: 36px;
+    font-size: var(--fs-medium);
+  }
+
+  .status {
+    font-size: var(--fs-normal);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .main--container {
+    padding: 1rem;
+  }
+
+  body {
+    padding: 1rem;
+  }
+
+  .button--copy {
+    right: 8px;
+    bottom: 16px;
+  }
+
+  input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+  }
+
+  .password--length {
+    top: 12px;
+    right: 15px;
+  }
+
+  .length--error,
+  .option--error {
+    left: 56px;
+  }
+
+  .length--error {
+    top: 89px;
+  }
+
+  .option--error {
+    bottom: 94px;
+  }
+}
